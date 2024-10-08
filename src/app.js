@@ -1,22 +1,22 @@
-const express = require('express')
-const cors = require('cors');
-const app = express()
-const port = 5000
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+
+const app = express();
 
 
-// middlewares 
-app.use(cors())
+app.use(cors());
+app.use(cookieParser())
+
+// Middleware
 app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}))
 
 
 app.get('/', (req, res) => {
-  res.send('Blood Donation app is running! ...')
-})
+  res.send('Welcome to the Blood Donation API');
+});
 
-
-app.listen(port, () => {
-  console.log(`Blood Donation is on ${port}`)
-})
-
-
-export default app
+export default app;
