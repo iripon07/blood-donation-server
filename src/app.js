@@ -14,6 +14,11 @@ app.use(express.urlencoded({
   extended: true
 }))
 
+// Routes Import 
+const donor = require('./routes/donorRoutes')
+
+app.use('/api/v1', donor)
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Blood Donation API');
